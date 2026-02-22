@@ -1,5 +1,5 @@
 from turtle import Turtle, Screen
-from wsgiref.util import guess_scheme
+from writing_name import Write
 
 import pandas
 
@@ -19,6 +19,11 @@ guessing_province = screen.textinput(f"{len(guessed_provinces) + 1}/{len(Provinc
                                     "Write name of a province")
 if guessing_province in Provinces not in guessed_provinces:
     guessed_provinces.append(guessing_province)
+    row = data[data.provinces == guessing_province]
+    xcor = row.x.item()
+    ycor = row.y.item()
+    Write(guessing_province, (xcor, ycor))
+
 
 
 screen.exitonclick()
