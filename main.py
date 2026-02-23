@@ -25,8 +25,5 @@ while len(guessed_provinces) < len(Provinces):
         ycor = row.y.item()
         Write(guessing_province, (xcor, ycor))
 
-remaining_provinces = []
-for province in Provinces:
-    if province not in guessed_provinces:
-        remaining_provinces.append(province)
+remaining_provinces = [province for province in Provinces if province not in guessed_provinces]
 print(f"Here is all the remaining provinces:{remaining_provinces}")
